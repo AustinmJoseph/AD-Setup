@@ -16,8 +16,10 @@ This tutorial shows how active directory is set up on Windows virtual machines w
 
 - Windows Server 2022
 - Windows 10 (21H2)
+  
 <h2>Domain Setup </h2>
-First lets set up the domain controller. I went to azure, created my resource group and named it AD-LAb. I also created a seperate virtual network called ABV-Lab. Then create a virtual machine named DC-1 and had it image Windows Werver 2022, put it in the virtual network we just made. Then go into DC-1's network settins and set its ip address to static. Create another virtual machine, make sure to image this virtual machine with regular Windows 10 not server and make sure the subnet is the same. Get DC-1's Public ip address and sign into it, to disable the fire wall. I disabled the domain, private, and public profile firewalls. Then change Client-1's DNS ipconfig to DC-1's ip and restart Client-1 sign into it. AFter I signed into client one I tested to make sure client one could ping the domain controller, to double check use the ipconfig by using "ipconfig/all" to see the output DNS was the domain controller.
+
+First lets set up the domain controller. I went to azure, created my resource group and named it AD-LAb. I also created a seperate virtual network called ABV-Lab. Then create a virtual machine named DC-1 and had it image Windows Werver 2022, put it in the virtual network we just made. Then go into DC-1's network settins and set its ip address to static. Create another virtual machine, make sure to image this virtual machine with regular Windows 10 not server and make sure the subnet is the same. Get DC-1's Public ip address and sign into it, to disable the fire wall. I disabled the domain, private, and public profile firewalls. Then change Client-1's DNS ipconfig to DC-1's ip and restart Client-1 sign into it. AFter I signed into client one I tested to make sure client one could ping the domain controller, to double check use the ipconfig by using "ipconfig/all" to see the output DNS was the domain controllers private IP.
 
 ![ade1](https://github.com/user-attachments/assets/34c65dcb-8407-45da-9886-8085c1cb303b)
 ![a2](https://github.com/user-attachments/assets/b01629df-7494-425b-b2f7-10f8d5da7119)
@@ -39,5 +41,14 @@ First lets set up the domain controller. I went to azure, created my resource gr
 ![ade20](https://github.com/user-attachments/assets/b965231b-2526-4e64-8490-bb4c6a76dfad)
 ![ade21a](https://github.com/user-attachments/assets/0f9d6466-f550-456c-b41e-530fa67b591b)
 
+<h2>Installing Active Directory </h2>
+Now that we have the domain set up and Client one lets install Active Directory. Go to add Roles and features on Server Manager. Chose Active Directory Domain services and then click next until you get to the install screen. After it finishes installing clikc the flag with the yellow sign and then click promote this server to a domain controller and choose to add new forest. We are going to use myadlab.com as our forest. I chose to keep it simple and used Password1 for domain controller options. Uncheck the DNS delegation and next untill you get to the install button. Let it install and it should automatically reset. Now that the vm has restarted we need to log in as a domain user. In remote desktop I used myadlab.com\labuser and Cyberlab123! as the password. 
+
+<h2> Creating a Domain Admin </h2>
+Now that active directory is intalled we are going to set up a Domain admin and fake employees. GO to DC-1 and look up Users and Computers go to myadlab.com right click > New > Organizational Unit and name it _EMPLOYEES, repeat the same procces and do _ADMINS. Now that those files are set up go to the admins folder right click > New > User you can put any name/ logon name you would like just dont forget it. I used the name Peter Parker and logon name Not_Spiderman and left the password as Cyberlab123!. We still have to make Peter a admin, click on Peters name and go to proporties > Member of > Add then type in Domain ADmins and click check name and it should refresh make sure to click apply and now Peter is a admin. now that peter is domain adimin we can sign out os lab user and use peters account for everything else. Now sign into client-1 open settings and click Rename PC ADvanced. then click hcange, member of domain put in your domain name and log into it with the admin account (Peter). THen the pc Should welcome you into the domain and you restart. Go back to the DC client to make sure client one is in DC-1 computers under ACtive Directory Users and Computers. This was all to set up active directory to help practice other labs that I will be doing in the future requiring it.
+
+
+
+ 
 
 
