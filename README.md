@@ -52,8 +52,23 @@ I kept it simple by using Password1 for the domain controller options. Uncheck D
 
 Once the VM has restarted, log in as a domain user. In Remote Desktop, I used myadlab.com\labuser and Cyberlab123! as the password.
 
-<h2> Creating a Domain Admin </h2>
-Now that active directory is intalled we are going to set up a Domain admin and fake employees. GO to DC-1 and look up Users and Computers go to myadlab.com right click > New > Organizational Unit and name it _EMPLOYEES, repeat the same procces and do _ADMINS. Now that those files are set up go to the admins folder right click > New > User you can put any name/ logon name you would like just dont forget it. I used the name Peter Parker and logon name Not_Spiderman and left the password as Cyberlab123!. We still have to make Peter a admin, click on Peters name and go to proporties > Member of > Add then type in Domain ADmins and click check name and it should refresh make sure to click apply and now Peter is a admin. now that peter is domain adimin we can sign out os lab user and use peters account for everything else. Now sign into client-1 open settings and click Rename PC ADvanced. then click hcange, member of domain put in your domain name and log into it with the admin account (Peter). THen the pc Should welcome you into the domain and you restart. Go back to the DC client to make sure client one is in DC-1 computers under ACtive Directory Users and Computers. This was all to set up active directory to help practice other labs that I will be doing in the future requiring it.
+<h2> Creating a Domain Admin and adding Client-1 as a user </h2>
+
+Now that Active Directory is installed, we are going to set up a Domain Admin and add Client-1 as a user of rhe domain.
+
+Go to DC-1, open Users and Computers, and navigate to myadlab.com. Right-click > New > Organizational Unit, and name it _EMPLOYEES. Repeat the process to create another Organizational Unit named _ADMINS.
+
+Now that these folders are set up, go to the _ADMINS folder, right-click > New > User. You can enter any name and logon name you’d like—just make sure to remember them. I used Peter Parker as the name and Not_Spiderman as the logon name, leaving the password as Cyberlab123!.
+
+Next, we need to make Peter an admin. Click on Peter’s name, go to Properties > Member Of > Add, then type Domain Admins and click Check Name. It should refresh—make sure to click Apply, and now Peter is a Domain Admin.
+
+Since Peter is now a Domain Admin, we can sign out of Lab User and use Peter’s account for everything else.
+
+Now, sign into Client-1, open Settings, and click Rename PC (Advanced). Then, click Change, select Member of Domain, enter your domain name, and log in with the admin account (Peter Parker). The PC should welcome you into the domain, and you will need to restart it.
+
+Go back to DC-1, open Active Directory Users and Computers, and check under Computers to ensure that Client-1 is listed.
+
+This setup was necessary to configure Active Directory for future labs that will require it.
 
 
 
