@@ -19,8 +19,19 @@ This tutorial shows how active directory is set up on Windows virtual machines w
   
 <h2>Domain Setup </h2>
 
-First lets set up the domain controller. I went to azure, created my resource group and named it AD-LAb. I also created a seperate virtual network called ABV-Lab. Then create a virtual machine named DC-1 and had it image Windows Werver 2022, put it in the virtual network we just made. Then go into DC-1's network settins and set its ip address to static. Create another virtual machine, make sure to image this virtual machine with regular Windows 10 not server and make sure the subnet is the same. Get DC-1's Public ip address and sign into it, to disable the fire wall. I disabled the domain, private, and public profile firewalls. Then change Client-1's DNS ipconfig to DC-1's ip and restart Client-1 sign into it. AFter I signed into client one I tested to make sure client one could ping the domain controller, to double check use the ipconfig by using "ipconfig/all" to see the output DNS was the domain controllers private IP.
+First, let’s set up the domain controller.
 
+I went to Azure, created a resource group, and named it AD-Lab. I also created a separate virtual network called ABV-Lab. Then, I created a virtual machine named DC-1, selected Windows Server 2022 as the image, and placed it in the virtual network we just created.
+
+Next, I went into DC-1’s network settings and set its IP address to static.
+
+After that, I created another virtual machine, ensuring it was imaged with regular Windows 10 (not Server) and that it was on the same subnet.
+
+I then retrieved DC-1’s public IP address, signed into it, and disabled the firewall. I disabled the Domain, Private, and Public profile firewalls.
+
+Then, I changed Client-1’s DNS configuration to use DC-1’s IP address, restarted Client-1, and signed into it.
+
+After signing into Client-1, I tested connectivity to ensure it could ping the domain controller. To double-check, I ran “ipconfig /all” to verify that the DNS server was set to DC-1’s private IP address.
 
 ![ade1](https://github.com/user-attachments/assets/34c65dcb-8407-45da-9886-8085c1cb303b)
 ![a2](https://github.com/user-attachments/assets/b01629df-7494-425b-b2f7-10f8d5da7119)
