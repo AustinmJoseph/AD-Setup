@@ -21,6 +21,7 @@ This tutorial shows how active directory is set up on Windows virtual machines w
 
 First lets set up the domain controller. I went to azure, created my resource group and named it AD-LAb. I also created a seperate virtual network called ABV-Lab. Then create a virtual machine named DC-1 and had it image Windows Werver 2022, put it in the virtual network we just made. Then go into DC-1's network settins and set its ip address to static. Create another virtual machine, make sure to image this virtual machine with regular Windows 10 not server and make sure the subnet is the same. Get DC-1's Public ip address and sign into it, to disable the fire wall. I disabled the domain, private, and public profile firewalls. Then change Client-1's DNS ipconfig to DC-1's ip and restart Client-1 sign into it. AFter I signed into client one I tested to make sure client one could ping the domain controller, to double check use the ipconfig by using "ipconfig/all" to see the output DNS was the domain controllers private IP.
 
+
 ![ade1](https://github.com/user-attachments/assets/34c65dcb-8407-45da-9886-8085c1cb303b)
 ![a2](https://github.com/user-attachments/assets/b01629df-7494-425b-b2f7-10f8d5da7119)
 ![aze3](https://github.com/user-attachments/assets/63d6ec00-a5f4-4444-96d1-1c5960417f9c)
