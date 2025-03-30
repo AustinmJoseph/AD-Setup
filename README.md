@@ -43,7 +43,14 @@ First lets set up the domain controller. I went to azure, created my resource gr
 ![ade21a](https://github.com/user-attachments/assets/0f9d6466-f550-456c-b41e-530fa67b591b)
 
 <h2>Installing Active Directory </h2>
-Now that we have the domain set up and Client one set up lets install Active Directory. Go to add Roles and features on Server Manager. Chose Active Directory Domain services and then click next until you get to the install screen. After it finishes installing clikc the flag with the yellow sign and then click promote this server to a domain controller and choose to add new forest. We are going to use myadlab.com as our forest. I chose to keep it simple and used Password1 for domain controller options. Uncheck the DNS delegation and next untill you get to the install button. Let it install and it should automatically reset. Now that the vm has restarted we need to log in as a domain user. In remote desktop I used myadlab.com\labuser and Cyberlab123! as the password. 
+
+Now that we have the domain and Client-1 set up, let’s install Active Directory.
+
+Go to Add Roles and Features in Server Manager, select Active Directory Domain Services, and click Next until you reach the install screen. After the installation finishes, click the flag with the yellow sign and select Promote this server to a domain controller. Choose to add a new forest and set the forest name as myadlab.com.
+
+I kept it simple by using Password1 for the domain controller options. Uncheck DNS delegation and click Next until you reach the Install button. Allow the installation to complete, and the server will automatically restart.
+
+Once the VM has restarted, log in as a domain user. In Remote Desktop, I used myadlab.com\labuser and Cyberlab123! as the password.
 
 <h2> Creating a Domain Admin </h2>
 Now that active directory is intalled we are going to set up a Domain admin and fake employees. GO to DC-1 and look up Users and Computers go to myadlab.com right click > New > Organizational Unit and name it _EMPLOYEES, repeat the same procces and do _ADMINS. Now that those files are set up go to the admins folder right click > New > User you can put any name/ logon name you would like just dont forget it. I used the name Peter Parker and logon name Not_Spiderman and left the password as Cyberlab123!. We still have to make Peter a admin, click on Peters name and go to proporties > Member of > Add then type in Domain ADmins and click check name and it should refresh make sure to click apply and now Peter is a admin. now that peter is domain adimin we can sign out os lab user and use peters account for everything else. Now sign into client-1 open settings and click Rename PC ADvanced. then click hcange, member of domain put in your domain name and log into it with the admin account (Peter). THen the pc Should welcome you into the domain and you restart. Go back to the DC client to make sure client one is in DC-1 computers under ACtive Directory Users and Computers. This was all to set up active directory to help practice other labs that I will be doing in the future requiring it.
