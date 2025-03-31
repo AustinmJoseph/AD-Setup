@@ -46,6 +46,7 @@ After signing into Client-1, I tested connectivity to ensure it could ping the d
 [ade11](https://github.com/user-attachments/assets/365784ee-5dcb-4f6a-a6c3-93bf3170671c)
 ![ade12](https://github.com/user-attachments/assets/1d8997fa-4cb0-429e-976b-79d635b37992)
 ![ade13](https://github.com/user-attachments/assets/2866823c-8537-4185-bbfb-aa29333a5b22)
+![firewall](https://github.com/user-attachments/assets/f9f7ea4f-9f86-4da5-a5fd-fc4183cd350d)
 ![ade14](https://github.com/user-attachments/assets/cd0259c7-f128-4945-854d-5df28f43d2b6)
 ![ade15](https://github.com/user-attachments/assets/754bd832-081d-49b4-b6a9-4e6a43ff7ad9)
 ![ade15 (1)](https://github.com/user-attachments/assets/a1cd5411-3e7a-4728-9e3d-b8c612a169ab)
@@ -57,29 +58,53 @@ After signing into Client-1, I tested connectivity to ensure it could ping the d
 
 Now that we have the domain and Client-1 set up, let’s install Active Directory.
 
-Go to Add Roles and Features in Server Manager, select Active Directory Domain Services, and click Next until you reach the install screen. After the installation finishes, click the flag with the yellow sign and select Promote this server to a domain controller. Choose to add a new forest and set the forest name as myadlab.com.
+Go to Add Roles and Features in Server Manager, select Active Directory Domain Services, and click Next until you reach the install screen. After the installation finishes, click the flag with the yellow sign and select Promote this server to a domain controller. Choose to add a new forest, I set mine as myadlab.com. What ever you chose make sure to remember it.
 
 I kept it simple by using Password1 for the domain controller options. Uncheck DNS delegation and click Next until you reach the Install button. Allow the installation to complete, and the server will automatically restart.
 
 Once the VM has restarted, log in as a domain user. In Remote Desktop, I used myadlab.com\labuser and Cyberlab123! as the password.
 
+
+![ade1](https://github.com/user-attachments/assets/8130b164-6baa-4302-87c1-77664d6ba2a2)
+![ade2](https://github.com/user-attachments/assets/17d8e95c-71af-43af-be7f-53128dc3f33b)
+![ade3](https://github.com/user-attachments/assets/9157d9c0-3b69-4dcc-8199-34813d47d959)
+![ade4](https://github.com/user-attachments/assets/11c93a93-3765-4286-a42a-c7d684c2d6bf)
+![ade5](https://github.com/user-attachments/assets/cac4d3f4-bbc5-4ac7-ad70-cea5274512bb)
+![ad6](https://github.com/user-attachments/assets/a490e07b-a539-43af-92e5-3f612be34abd)
+![ad7](https://github.com/user-attachments/assets/ef95c0af-4e78-4482-9e05-0dc988486edf)
+![ad8](https://github.com/user-attachments/assets/644703bd-52b1-4841-aaf6-12ea4967f6e2)
+![ad9](https://github.com/user-attachments/assets/d2e38282-44e8-4f62-92fe-3ea2fc4a22ab)
+
+
 <h2> Creating a Domain Admin and adding Client-1 as a user </h2>
 
-Now that Active Directory is installed, we are going to set up a Domain Admin and add Client-1 as a user of rhe domain.
+Now that Active Directory is installed, we are going to set up a Domain Admin and add Client-1 as a user of the domain.
 
 Go to DC-1, open Users and Computers, and navigate to myadlab.com. Right-click > New > Organizational Unit, and name it _EMPLOYEES. Repeat the process to create another Organizational Unit named _ADMINS.
 
-Now that these folders are set up, go to the _ADMINS folder, right-click > New > User. You can enter any name and logon name you’d like—just make sure to remember them. I used Peter Parker as the name and Not_Spiderman as the logon name, leaving the password as Cyberlab123!.
+Now that these folders are set up, go to the _ADMINS folder, right-click > New > User. You can enter any name and logon name you’d like—just make sure to remember them. I used Peter Parker as the name and Not_Spiderman as the logon name, change the password setting to never expires for lab purposes and leave the password as Cyberlab123!.
 
 Next, we need to make Peter an admin. Click on Peter’s name, go to Properties > Member Of > Add, then type Domain Admins and click Check Name. It should refresh—make sure to click Apply, and now Peter is a Domain Admin.
 
-Since Peter is now a Domain Admin, we can sign out of Lab User and use Peter’s account for everything else.
+Since Peter is now a Domain Admin, we can sign out and use Peter’s account for everything else.
 
-Now, sign into Client-1, open Settings, and click Rename PC (Advanced). Then, click Change, select Member of Domain, enter your domain name, and log in with the admin account (Peter Parker). The PC should welcome you into the domain, and you will need to restart it.
+Now, sign into Client-1 , open Settings, and click Rename PC (Advanced). Then, click Change, select Member of Domain, enter your domain name, and log in with the admin account (Peter Parker). The vm should welcome you into the domain, and you will need to restart it.
 
 Go back to DC-1, open Active Directory Users and Computers, and check under Computers to ensure that Client-1 is listed.
 
 This setup was necessary to configure Active Directory for future labs that will require it.
+
+![a10](https://github.com/user-attachments/assets/08d16c65-86b0-4903-9b11-e2ee5271f233)
+![ade11](https://github.com/user-attachments/assets/044cb3c4-5527-4eef-af72-98cb5e550f27)
+![a12](https://github.com/user-attachments/assets/8aeae419-fa72-47f0-aa35-6b442498c3fd)
+![ade13](https://github.com/user-attachments/assets/b2484316-cceb-40e3-b8eb-e3ddada7f591)
+![ade14](https://github.com/user-attachments/assets/ecca5262-dc6f-49d5-8881-016ec1e61a36)
+![ade15](https://github.com/user-attachments/assets/d505b858-31a6-4f3b-9e2b-30c6b57a67fc)
+![adelab last](https://github.com/user-attachments/assets/78856636-1177-46c1-9bd5-7fa6b238a3f2)
+![adelab3](https://github.com/user-attachments/assets/ce37581c-a04d-4cb0-883d-621e8d2e6a05)
+![ad16](https://github.com/user-attachments/assets/f0406eec-7fc5-49e7-a030-2273416ea796)
+
+
 
 
 
