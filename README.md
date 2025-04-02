@@ -33,6 +33,8 @@ Then, I changed Client-1’s DNS configuration to use DC-1’s IP address, resta
 
 After signing into Client-1, I tested connectivity to ensure it could ping the domain controller. To double-check, I ran “ipconfig /all” to verify that the DNS server was set to DC-1’s private IP address.
 
+---
+
 ![ade1](https://github.com/user-attachments/assets/34c65dcb-8407-45da-9886-8085c1cb303b)
 ![a2](https://github.com/user-attachments/assets/b01629df-7494-425b-b2f7-10f8d5da7119)
 ![aze3](https://github.com/user-attachments/assets/63d6ec00-a5f4-4444-96d1-1c5960417f9c)
@@ -54,6 +56,8 @@ After signing into Client-1, I tested connectivity to ensure it could ping the d
 ![ade20](https://github.com/user-attachments/assets/b965231b-2526-4e64-8490-bb4c6a76dfad)
 ![ade21a](https://github.com/user-attachments/assets/0f9d6466-f550-456c-b41e-530fa67b591b)
 
+---
+
 <h2>Installing Active Directory </h2>
 
 Now that we have the domain and Client-1 set up, let’s install Active Directory.
@@ -64,6 +68,7 @@ I kept it simple by using Password1 for the domain controller options. Uncheck D
 
 Once the VM has restarted, log in as a domain user. In Remote Desktop, I used myadlab.com\labuser and Cyberlab123! as the password.
 
+---
 
 ![ade1](https://github.com/user-attachments/assets/8130b164-6baa-4302-87c1-77664d6ba2a2)
 ![ade2](https://github.com/user-attachments/assets/17d8e95c-71af-43af-be7f-53128dc3f33b)
@@ -75,6 +80,7 @@ Once the VM has restarted, log in as a domain user. In Remote Desktop, I used my
 ![ad8](https://github.com/user-attachments/assets/644703bd-52b1-4841-aaf6-12ea4967f6e2)
 ![ad9](https://github.com/user-attachments/assets/d2e38282-44e8-4f62-92fe-3ea2fc4a22ab)
 
+---
 
 <h2> Creating a Domain Admin and adding Client-1 as a user </h2>
 
@@ -94,6 +100,8 @@ Go back to DC-1, open Active Directory Users and Computers, and check under Comp
 
 This setup was necessary to configure Active Directory for future labs that will require it.
 
+---
+
 ![a10](https://github.com/user-attachments/assets/08d16c65-86b0-4903-9b11-e2ee5271f233)
 ![ade11](https://github.com/user-attachments/assets/044cb3c4-5527-4eef-af72-98cb5e550f27)
 ![a12](https://github.com/user-attachments/assets/8aeae419-fa72-47f0-aa35-6b442498c3fd)
@@ -104,7 +112,7 @@ This setup was necessary to configure Active Directory for future labs that will
 ![adelab3](https://github.com/user-attachments/assets/ce37581c-a04d-4cb0-883d-621e8d2e6a05)
 ![ad16](https://github.com/user-attachments/assets/f0406eec-7fc5-49e7-a030-2273416ea796)
 
-
+---
 
 
 
