@@ -17,21 +17,19 @@ This tutorial shows how active directory is set up on Windows virtual machines w
 - Windows Server 2022
 - Windows 10 (21H2)
   
-<h2>Domain Setup </h2>
+<h2>Domain Controller setup </h2>
 
-First, let’s set up the domain controller.
+First, I created a resource group in Azure and named it AD-Lab. I also set up a virtual network called ABV-Lab. Within this network, I launched a virtual machine named DC-1, selecting Windows Server 2022 as the image.
 
-I went to Azure, created a resource group, and named it AD-Lab. I also created a separate virtual network called ABV-Lab. Then, I created a virtual machine named DC-1, selected Windows Server 2022 as the image, and placed it in the virtual network we just created.
+Next, I configured DC-1’s network settings and set its IP address to static to ensure stable connectivity.
 
-Next, I went into DC-1’s network settings and set its IP address to static.
+Then, I created another virtual machine, Client-1, using a standard Windows 10 image (not a server version), ensuring it was placed on the same subnet as DC-1.
 
-After that, I created another virtual machine, ensuring it was imaged with regular Windows 10 (not Server) and that it was on the same subnet.
+I retrieved DC-1’s public IP address, signed into it, and disabled the firewall by turning off the Domain, Private, and Public profile firewalls.
 
-I then retrieved DC-1’s public IP address, signed into it, and disabled the firewall. I disabled the Domain, Private, and Public profile firewalls.
+Afterward, I updated Client-1’s DNS settings to point to DC-1’s private IP address. I then restarted Client-1 and signed into it.
 
-Then, I changed Client-1’s DNS configuration to use DC-1’s IP address, restarted Client-1, and signed into it.
-
-After signing into Client-1, I tested connectivity to ensure it could ping the domain controller. To double-check, I ran “ipconfig /all” to verify that the DNS server was set to DC-1’s private IP address.
+Once signed in, I tested the connectivity by pinging the domain controller to ensure it was reachable. To confirm everything was configured correctly, I ran the command ipconfig /all on Client-1 to verify that the DNS server was set to DC-1’s private IP address.
 
 ---
 
@@ -60,13 +58,15 @@ After signing into Client-1, I tested connectivity to ensure it could ping the d
 
 <h2>Installing Active Directory </h2>
 
-Now that we have the domain and Client-1 set up, let’s install Active Directory.
+Now that the domain and Client-1 are set up, let's proceed with installing Active Directory.
 
-Go to Add Roles and Features in Server Manager, select Active Directory Domain Services, and click Next until you reach the install screen. After the installation finishes, click the flag with the yellow sign and select Promote this server to a domain controller. Choose to add a new forest, I set mine as myadlab.com. What ever you chose make sure to remember it.
+I started by going to Add Roles and Features in Server Manager, then selected Active Directory Domain Services. I clicked Next until I reached the installation screen. After the installation finished, I clicked on the flag with the yellow warning sign and selected Promote this server to a domain controller.
 
-I kept it simple by using Password1 for the domain controller options. Uncheck DNS delegation and click Next until you reach the Install button. Allow the installation to complete, and the server will automatically restart.
+I chose to Add a new forest and set the domain name as myadlab.com. Whatever domain name you choose, make sure to remember it.
 
-Once the VM has restarted, log in as a domain user. In Remote Desktop, I used myadlab.com\labuser and Cyberlab123! as the password.
+For the domain controller options, I kept it simple by setting the password to Password1. I unchecked the DNS delegation option and clicked Next until I reached the Install button. Once ready, I clicked Install and allowed the installation to complete. The server automatically restarted after the installation.
+
+After the restart, I logged in as a domain user. For the login, I used myadlab.com\labuser with the password Cyberlab123!.
 
 ---
 
@@ -82,23 +82,24 @@ Once the VM has restarted, log in as a domain user. In Remote Desktop, I used my
 
 ---
 
-<h2> Creating a Domain Admin and adding Client-1 as a user </h2>
+<h2> Creating a Domain Admin and adding Client-1 as a Domain user </h2>
 
-Now that Active Directory is installed, we are going to set up a Domain Admin and add Client-1 as a user of the domain.
+Now that Active Directory is installed, we’ll set up a Domain Admin and add Client-1 as a user of the domain.
 
-Go to DC-1, open Users and Computers, and navigate to myadlab.com. Right-click > New > Organizational Unit, and name it _EMPLOYEES. Repeat the process to create another Organizational Unit named _ADMINS.
+I started by going to DC-1 and opening Active Directory Users and Computers. Then, I navigated to myadlab.com, right-clicked on it, selected New > Organizational Unit, and named it _EMPLOYEES. I repeated the process to create another Organizational Unit called _ADMINS.
 
-Now that these folders are set up, go to the _ADMINS folder, right-click > New > User. You can enter any name and logon name you’d like—just make sure to remember them. I used Peter Parker as the name and Not_Spiderman as the logon name, change the password setting to never expires for lab purposes and leave the password as Cyberlab123!.
+With the folders set up, I went to the _ADMINS folder, right-clicked, and selected New > User. I entered a name and logon name—Peter Parker for the name and Not_Spiderman for the logon name. For lab purposes, I set the password to Cyberlab123! and changed the password setting to Password Never Expires.
 
-Next, we need to make Peter an admin. Click on Peter’s name, go to Properties > Member Of > Add, then type Domain Admins and click Check Name. It should refresh—make sure to click Apply, and now Peter is a Domain Admin.
+Next, I made Peter a Domain Admin. To do this, I clicked on Peter Parker’s name, went to Properties > Member Of > Add, then typed Domain Admins and clicked Check Name. Once it refreshed, I clicked Apply, making Peter a Domain Admin.
 
-Since Peter is now a Domain Admin, we can sign out and use Peter’s account for everything else.
+Since Peter is now a Domain Admin, I signed out of the admin account and used Peter’s account for the remaining tasks.
 
-Now, sign into Client-1 , open Settings, and click Rename PC (Advanced). Then, click Change, select Member of Domain, enter your domain name, and log in with the admin account (Peter Parker). The vm should welcome you into the domain, and you will need to restart it.
+I then signed into Client-1, opened Settings, and clicked on Rename this PC (Advanced). Next, I clicked Change, selected Member of Domain, entered the domain name, and logged in with the Peter Parker admin account. The VM welcomed me into the domain, and I restarted the system.
 
-Go back to DC-1, open Active Directory Users and Computers, and check under Computers to ensure that Client-1 is listed.
+After the restart, I returned to DC-1, opened Active Directory Users and Computers, and checked under Computers to ensure that Client-1 was listed.
 
-This setup was necessary to configure Active Directory for future labs that will require it.
+This setup is essential for configuring Active Directory for future labs that will require domain integration.
+
 
 ---
 
