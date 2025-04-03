@@ -3,7 +3,7 @@
 </p>
 
 <h1>Active Directory set up on Azure</h1>
-This tutorial shows how active directory is set up on Windows virtual machines within Azure.
+This tutorial shows how Active Directory is set up on Windows virtual machines within Azure.
 
 <h2>Environments and Technologies Used</h2>
 
@@ -162,34 +162,64 @@ After the restart, I logged in as a domain user. For the login, I used myadlab.c
 
 Now that Active Directory is installed, we’ll set up a Domain Admin and add Client-1 as a user of the domain.
 
-I started by going to DC-1 and opening Active Directory Users and Computers. Then, I navigated to myadlab.com, right-clicked on it, selected New > Organizational Unit, and named it _EMPLOYEES. I repeated the process to create another Organizational Unit called _ADMINS.
+I started by going to DC-1 and opening Active Directory Users and Computers. 
 
-With the folders set up, I went to the _ADMINS folder, right-clicked, and selected New > User. I entered a name and logon name—Peter Parker for the name and Not_Spiderman for the logon name. For lab purposes, I set the password to Cyberlab123! and changed the password setting to Password Never Expires.
-
-Next, I made Peter a Domain Admin. To do this, I clicked on Peter Parker’s name, went to Properties > Member Of > Add, then typed Domain Admins and clicked Check Name. Once it refreshed, I clicked Apply, making Peter a Domain Admin.
-
-Since Peter is now a Domain Admin, I signed out of the admin account and used Peter’s account for the remaining tasks.
-
-I then signed into Client-1, opened Settings, and clicked on Rename this PC (Advanced). Next, I clicked Change, selected Member of Domain, entered the domain name, and logged in with the Peter Parker admin account. The VM welcomed me into the domain, and I restarted the system.
-
-After the restart, I returned to DC-1, opened Active Directory Users and Computers, and checked under Computers to ensure that Client-1 was listed.
-
-This setup is essential for configuring Active Directory for future labs that will require domain integration.
-
+Then, I navigated to myadlab.com, right-clicked on it, selected New > Organizational Unit, and named it _EMPLOYEES. I repeated the process to create another Organizational Unit called _ADMINS.
 
 ---
 
 ![a10](https://github.com/user-attachments/assets/08d16c65-86b0-4903-9b11-e2ee5271f233)
 ![ade11](https://github.com/user-attachments/assets/044cb3c4-5527-4eef-af72-98cb5e550f27)
+
+---
+
+With the folders set up, I went to the _ADMINS folder, right-clicked, and selected New > User. I entered a name and logon name—Peter Parker for the name and Not_Spiderman for the logon name. 
+
+For lab purposes, I set the password to Cyberlab123! and changed the password setting to Password Never Expires.
+
+---
+
 ![a12](https://github.com/user-attachments/assets/8aeae419-fa72-47f0-aa35-6b442498c3fd)
 ![ade13](https://github.com/user-attachments/assets/b2484316-cceb-40e3-b8eb-e3ddada7f591)
+
+---
+
+Next, I made Peter a Domain Admin. 
+
+To do this, I clicked on Peter Parker’s name, went to Properties > Member Of > Add, then typed Domain Admins and clicked Check Name. Once it refreshed, I clicked Apply, making Peter a Domain Admin.
+
+---
+
 ![ade14](https://github.com/user-attachments/assets/ecca5262-dc6f-49d5-8881-016ec1e61a36)
 ![ade15](https://github.com/user-attachments/assets/d505b858-31a6-4f3b-9e2b-30c6b57a67fc)
+
+---
+
+Since Peter is now a Domain Admin, I signed out of the admin account and used Peter’s account for the remaining tasks.
+
+I then signed into Client-1, opened Settings, and clicked on Rename this PC (Advanced).
+
+Next, I clicked Change, selected Member of Domain, entered the domain name, and logged in with the Peter Parker admin account.
+
+The VM welcomed me into the domain, and I restarted the system.
+
+---
+
 ![adelab last](https://github.com/user-attachments/assets/78856636-1177-46c1-9bd5-7fa6b238a3f2)
 ![adelab3](https://github.com/user-attachments/assets/ce37581c-a04d-4cb0-883d-621e8d2e6a05)
+
+---
+
+After the restart, I returned to DC-1, opened Active Directory Users and Computers, and checked under Computers to ensure that Client-1 was listed.
+
+---
+
 ![ad16](https://github.com/user-attachments/assets/f0406eec-7fc5-49e7-a030-2273416ea796)
 
 ---
+
+This setup is essential for configuring Active Directory for future labs that will require domain integration.
+
 
 
 
