@@ -62,23 +62,17 @@ Then, I created another virtual machine, Client-1, using a standard Windows 10 i
 
 ---
 
-
-
----
-
-I retrieved DC-1’s public IP address, signed into it, and disabled the firewall by turning off the Domain, Private, and Public profile firewalls.
-
-Afterward, I updated Client-1’s DNS settings to point to DC-1’s private IP address. I then restarted Client-1 and signed into it.
-
-Once signed in, I tested the connectivity by pinging the domain controller to ensure it was reachable. To confirm everything was configured correctly, I ran the command ipconfig /all on Client-1 to verify that the DNS server was set to DC-1’s private IP address.
-
----
-
 ![ade6](https://github.com/user-attachments/assets/811493e1-bacd-48ae-bf3b-c3a978702bb6)
 
 ![ade7](https://github.com/user-attachments/assets/198fa827-5e32-4044-976d-03574397e6cc)
 
 ![ade8](https://github.com/user-attachments/assets/653cbedf-5ad2-43e4-b2bc-7177164a1313)
+
+---
+
+I retrieved DC-1’s public IP address, signed into it, and disabled the firewall by turning off the Domain, Private, and Public profile firewalls.
+
+---
 
 [ade11](https://github.com/user-attachments/assets/365784ee-5dcb-4f6a-a6c3-93bf3170671c)
 
@@ -88,6 +82,14 @@ Once signed in, I tested the connectivity by pinging the domain controller to en
 
 ![firewall](https://github.com/user-attachments/assets/f9f7ea4f-9f86-4da5-a5fd-fc4183cd350d)
 
+---
+
+
+
+Afterward, I updated Client-1’s DNS settings to point to DC-1’s private IP address. I then restarted Client-1 and signed into it.
+
+---
+
 ![ade14](https://github.com/user-attachments/assets/cd0259c7-f128-4945-854d-5df28f43d2b6)
 
 ![ade15](https://github.com/user-attachments/assets/754bd832-081d-49b4-b6a9-4e6a43ff7ad9)
@@ -95,6 +97,12 @@ Once signed in, I tested the connectivity by pinging the domain controller to en
 ![ade15 (1)](https://github.com/user-attachments/assets/a1cd5411-3e7a-4728-9e3d-b8c612a169ab)
 
 ![ade19](https://github.com/user-attachments/assets/ae2e1e60-05c9-4672-8b86-01ceea2d1b32)
+
+---
+
+Once signed in, I tested the connectivity by pinging the domain controller to ensure it was reachable. To confirm everything was configured correctly, I ran the command ipconfig /all on Client-1 to verify that the DNS server was set to DC-1’s private IP address.
+
+---
 
 ![ade20](https://github.com/user-attachments/assets/b965231b-2526-4e64-8490-bb4c6a76dfad)
 
