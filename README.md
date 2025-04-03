@@ -50,12 +50,21 @@ Next, I configured DC-1’s network settings and set its IP address to static to
 
 ---
 
-![ade11](https://github.com/user-attachments/assets/57afc05a-2160-4b88-bd09-ecbd93befddb)
+![ade9](https://github.com/user-attachments/assets/6cd18429-1e97-4234-bce7-562a32de73af)
 
+![ade10](https://github.com/user-attachments/assets/6ccf71b4-3c6f-408d-bd4a-9041c1c72044)
+
+![ade11](https://github.com/user-attachments/assets/57afc05a-2160-4b88-bd09-ecbd93befddb)
 
 ---
 
 Then, I created another virtual machine, Client-1, using a standard Windows 10 image (not a server version), ensuring it was placed on the same subnet as DC-1.
+
+---
+
+
+
+---
 
 I retrieved DC-1’s public IP address, signed into it, and disabled the firewall by turning off the Domain, Private, and Public profile firewalls.
 
@@ -65,19 +74,11 @@ Once signed in, I tested the connectivity by pinging the domain controller to en
 
 ---
 
-![ade4](https://github.com/user-attachments/assets/813dafa1-2406-4e6a-93c0-8d446106e118)
-
-![ade5](https://github.com/user-attachments/assets/2a6f0944-9a8b-4eab-89ae-e26fbc04a26e)
-
 ![ade6](https://github.com/user-attachments/assets/811493e1-bacd-48ae-bf3b-c3a978702bb6)
 
 ![ade7](https://github.com/user-attachments/assets/198fa827-5e32-4044-976d-03574397e6cc)
 
 ![ade8](https://github.com/user-attachments/assets/653cbedf-5ad2-43e4-b2bc-7177164a1313)
-
-![ade9](https://github.com/user-attachments/assets/6cd18429-1e97-4234-bce7-562a32de73af)
-
-![ade10](https://github.com/user-attachments/assets/6ccf71b4-3c6f-408d-bd4a-9041c1c72044)
 
 [ade11](https://github.com/user-attachments/assets/365784ee-5dcb-4f6a-a6c3-93bf3170671c)
 
