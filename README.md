@@ -74,8 +74,6 @@ I retrieved DC-1’s public IP address, signed into it, and disabled the firewal
 
 ---
 
-[ade11](https://github.com/user-attachments/assets/365784ee-5dcb-4f6a-a6c3-93bf3170671c)
-
 ![ade12](https://github.com/user-attachments/assets/1d8997fa-4cb0-429e-976b-79d635b37992)
 
 ![ade13](https://github.com/user-attachments/assets/2866823c-8537-4185-bbfb-aa29333a5b22)
