@@ -114,24 +114,48 @@ Once signed in, I tested the connectivity by pinging the domain controller to en
 
 Now that the domain and Client-1 are set up, let's proceed with installing Active Directory.
 
-I started by going to Add Roles and Features in Server Manager, then selected Active Directory Domain Services. I clicked Next until I reached the installation screen. After the installation finished, I clicked on the flag with the yellow warning sign and selected Promote this server to a domain controller.
+---
+
+I started by going to Add Roles and Features in Server Manager, then selected Active Directory Domain Services.
+
+---
+![ade1](https://github.com/user-attachments/assets/8130b164-6baa-4302-87c1-77664d6ba2a2)
+![ade2](https://github.com/user-attachments/assets/17d8e95c-71af-43af-be7f-53128dc3f33b)
+
+---
+
+
+I clicked Next until I reached the installation screen. After the installation finished, I clicked on the flag with the yellow warning sign and selected Promote this server to a domain controller.
+
+---
+
+![ade3](https://github.com/user-attachments/assets/9157d9c0-3b69-4dcc-8199-34813d47d959)
+![ade4](https://github.com/user-attachments/assets/11c93a93-3765-4286-a42a-c7d684c2d6bf)
+
+---
 
 I chose to Add a new forest and set the domain name as myadlab.com. Whatever domain name you choose, make sure to remember it.
 
+---
+
+![ade5](https://github.com/user-attachments/assets/cac4d3f4-bbc5-4ac7-ad70-cea5274512bb)
+
+---
+
 For the domain controller options, I kept it simple by setting the password to Password1. I unchecked the DNS delegation option and clicked Next until I reached the Install button. Once ready, I clicked Install and allowed the installation to complete. The server automatically restarted after the installation.
+
+---
+
+![ad6](https://github.com/user-attachments/assets/a490e07b-a539-43af-92e5-3f612be34abd)
+![ad7](https://github.com/user-attachments/assets/ef95c0af-4e78-4482-9e05-0dc988486edf)
+![ad8](https://github.com/user-attachments/assets/644703bd-52b1-4841-aaf6-12ea4967f6e2)
+
+---
 
 After the restart, I logged in as a domain user. For the login, I used myadlab.com\labuser with the password Cyberlab123!.
 
 ---
 
-![ade1](https://github.com/user-attachments/assets/8130b164-6baa-4302-87c1-77664d6ba2a2)
-![ade2](https://github.com/user-attachments/assets/17d8e95c-71af-43af-be7f-53128dc3f33b)
-![ade3](https://github.com/user-attachments/assets/9157d9c0-3b69-4dcc-8199-34813d47d959)
-![ade4](https://github.com/user-attachments/assets/11c93a93-3765-4286-a42a-c7d684c2d6bf)
-![ade5](https://github.com/user-attachments/assets/cac4d3f4-bbc5-4ac7-ad70-cea5274512bb)
-![ad6](https://github.com/user-attachments/assets/a490e07b-a539-43af-92e5-3f612be34abd)
-![ad7](https://github.com/user-attachments/assets/ef95c0af-4e78-4482-9e05-0dc988486edf)
-![ad8](https://github.com/user-attachments/assets/644703bd-52b1-4841-aaf6-12ea4967f6e2)
 ![ad9](https://github.com/user-attachments/assets/d2e38282-44e8-4f62-92fe-3ea2fc4a22ab)
 
 ---
